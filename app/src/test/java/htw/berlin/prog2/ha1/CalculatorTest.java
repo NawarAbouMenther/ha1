@@ -90,5 +90,17 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+
+    @Test
+    @DisplayName("should reset display to 0 when pressing clear key")
+    void testClearDisplay() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressClearKey();
+        String expected = "0";
+    }
+    
+
+
 }
 
