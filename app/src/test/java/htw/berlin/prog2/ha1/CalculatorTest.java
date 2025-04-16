@@ -95,13 +95,36 @@ class CalculatorTest {
     @DisplayName("should reset display to 0 when pressing clear key")
     void testClearDisplay() {
         Calculator calc = new Calculator();
+
         calc.pressDigitKey(1);
         calc.pressClearKey();
+
         String expected = "0";
         String actual = calc.readScreen();
+
         assertEquals(expected, actual);
     }
 
+
+    @Test
+    @DisplayName("should calculate percentage based on previous number")
+    void testPercentageOfPreviousNumber() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressUnaryOperationKey("%");
+        calc.pressEqualsKey();
+
+        String expected = "240";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 
 
 }
