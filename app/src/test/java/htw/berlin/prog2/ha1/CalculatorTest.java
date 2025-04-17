@@ -127,5 +127,19 @@ class CalculatorTest {
     }
 
 
+    @Test
+    @DisplayName("should display error when pressing 1/x on zero")
+    void testPressingOnZero() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(0);
+        calc.pressUnaryOperationKey("1/x");
+
+        String expected = "Error";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 }
 
