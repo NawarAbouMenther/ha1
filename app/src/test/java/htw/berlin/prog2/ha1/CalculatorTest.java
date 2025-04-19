@@ -117,7 +117,7 @@ class CalculatorTest {
         calc.pressBinaryOperationKey("+");
         calc.pressDigitKey(2);
         calc.pressDigitKey(0);
-        calc.pressUnaryOperationKey("%");
+        calc.pressPercentKey();
         calc.pressEqualsKey();
 
         String expected = "240";
